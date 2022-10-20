@@ -10,3 +10,4 @@ npm i nodemon -D -----> install nodemon dependencies
 # CLient:
 
 npx create-react-app .
+npm i react-router-dom
