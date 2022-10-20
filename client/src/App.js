@@ -1,25 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import RestaurantsServices from "./services/restaurants_services";
+import Filter from "./components/filter/Filter";
+import Header from "./components/header/Header";
+import Section from "./components/section/Section";
 
 function App() {
-  const [backendData, setBackendData] = useState([{}]);
+  const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((data) => {
-        setBackendData(data);
-      });
+    const restaurantService = new RestaurantsServices();
+    restaurantService.show().then((data) => {
+      setRestaurants(data);
+    });
   }, []);
 
+  const handleSearch = async (e) => {
+    const newRestaurant = e.target.value;
+    const restaurantService = new RestaurantsServices();
+
+    if (newRestaurant) {
+      restaurantService.show(newRestaurant).then((data) => {
+        setRestaurants(data);
+      });
+    }
+  };
+
   return (
-    <div>
-      <h1>App in React</h1>
-      {typeof backendData.users === "undefined" ? (
-        <p> Loading...</p>
-      ) : (
-        backendData.users.map((user, i) => <p key={i}>{user} </p>)
-      )}
+    <div className="container">
+      <Header />
+      <Filter placeholder={"Busca tu restaurante"} onChange={handleSearch} />
+      <Section restaurants={restaurants} />
     </div>
   );
 }
