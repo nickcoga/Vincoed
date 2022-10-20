@@ -1,0 +1,23 @@
+html, body {
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(15, 15vw);
+    align-items: center;
+    justify-content: center;    
+}
+
+@media (min-width: 768px) {
+   .container{
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(15, 5vw);
+   }
+
+}
