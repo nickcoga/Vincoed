@@ -1,9 +1,24 @@
 import { Dish } from "../models/Dish.js";
+import { sequelize } from "../database/database.js";
 
 export const getDishes = async (req, res) => {
+  const { name } = req.query;
   try {
-    const dish = await Dish.findAll();
-    res.json(dish);
+    if (name) {
+      const dishes = await Dish.findAll({
+        where: {
+          name: sequelize.where(
+            sequelize.fn("LOWER", sequelize.col("name")),
+            "LIKE",
+            "%" + name.toLowerCase() + "%"
+          ),
+        },
+      });
+      res.json(dishes);
+    } else {
+      const dishes = await Dish.findAll();
+      res.json(dishes);
+    }
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -30,7 +45,7 @@ export const getDishesName = async (req, res) => {
   const { name } = req.params;
 
   try {
-    const dish = await Dish.findAll({
+    const dishes = await Dish.findAll({
       where: {
         name: {
           [Op.like]: "%" + name + "%",
@@ -38,10 +53,10 @@ export const getDishesName = async (req, res) => {
       },
     });
 
-    if (!dish || [])
+    if (dishes.length === 0)
       return res.status(404).json({ message: "Dish does no exists" });
 
-    res.json(dish);
+    res.json(dishes);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
