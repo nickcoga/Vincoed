@@ -12,6 +12,8 @@ export const Dish = sequelize.define("dishes", {
   },
   price: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
   },
   image: {
     type: DataTypes.STRING,
