@@ -25,12 +25,12 @@ export const getDishes = async (req, res) => {
 };
 
 export const createDishes = async (req, res) => {
-  const { name, prices, image, restaurantId } = req.body;
+  const { name, price, image, restaurantId } = req.body;
 
   try {
     const newDish = await Dish.create({
       name,
-      prices,
+      price,
       image,
       restaurantId,
     });
