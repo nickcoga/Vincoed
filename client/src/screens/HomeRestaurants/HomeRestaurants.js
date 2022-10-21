@@ -15,14 +15,11 @@ export default function HomeRestaurant({ restaurants, setRestaurants }) {
   }, [setRestaurants]);
 
   const handleSearch = async (e) => {
-    const newRestaurant = e.target.value;
+    const searchRestaurant = e.target.value;
     const restaurantService = new RestaurantsServices();
-
-    if (newRestaurant) {
-      restaurantService.show(newRestaurant).then((data) => {
-        setRestaurants(data);
-      });
-    }
+    restaurantService.show(searchRestaurant).then((data) => {
+      setRestaurants(data);
+    });
   };
 
   return (
