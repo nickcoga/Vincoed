@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./HomeRestaurants.css";
 import Header from "../../components/header/Header";
 import Filter from "../../components/filter/Filter";
 import Section from "../../components/section/Section";
 import RestaurantsServices from "../../services/restaurants_services";
 
-export default function HomeRestaurant() {
-  const [restaurants, setRestaurants] = useState([]);
-
+export default function HomeRestaurant({ restaurants, setRestaurants }) {
   useEffect(() => {
     const restaurantService = new RestaurantsServices();
     restaurantService.show().then((data) => {
       setRestaurants(data);
     });
-  }, []);
+  }, [setRestaurants]);
 
   const handleSearch = async (e) => {
     const newRestaurant = e.target.value;
