@@ -35,7 +35,7 @@
     .content__section{
         grid-column-start: 3;
         grid-column-end: 12;
-        grid-row-start: 10;
+        grid-row-start: 12;
         grid-row-end: 15;
         justify-content: flex-start;
        }
