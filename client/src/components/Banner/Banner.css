@@ -76,7 +76,7 @@
      grid-column-end: 11;
      grid-row-start: 3;
      grid-row-end: 3; 
-     height: 133px;
+     height: 137px;
     }
     .content img {
         width: 8vw;
@@ -89,12 +89,12 @@
     .banner {
         grid-column-start: 3;
         grid-column-end: 12;
-        grid-row-start: 2;
+        grid-row-start: 3;
         grid-row-end: 4;
-        height: 133px;
+        height: 137px;
        }
        .content img {
         width: 10vw;
         height: 14vh;
-          }
+        }
 }

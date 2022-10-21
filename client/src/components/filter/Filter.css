@@ -24,6 +24,10 @@
     font-size: 16px;
 }
 
+.filter__content input:focus-visible {
+    outline: none;
+}
+
 @media (min-width: 768px) {
     .filter__content {
         grid-column-start: 3;
