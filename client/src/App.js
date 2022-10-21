@@ -1,11 +1,32 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CreateRestaurant from "./screens/CreateRestaurant/CreateRestaurant";
+import Dishes from "./screens/Dishes/Dishes";
+import EditRestaurant from "./screens/EditRestaurant/EditRestaurant";
 import HomeRestaurant from "./screens/HomeRestaurants/HomeRestaurants";
 
 function App() {
+  const [restaurants, setRestaurants] = useState([]);
+
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<HomeRestaurant />} />
+        <Route
+          exact
+          path="/"
+          element={
+            <HomeRestaurant
+              restaurants={restaurants}
+              setRestaurants={setRestaurants}
+            />
+          }
+        />
+        <Route path="/restaurants/new" element={<CreateRestaurant />} />
+        <Route
+          path="/restaurants/:id/edit"
+          element={<EditRestaurant restaurants={restaurants} />}
+        />
+        <Route path="/restaurants/:id" element={<Dishes />} />
       </Routes>
     </Router>
   );
