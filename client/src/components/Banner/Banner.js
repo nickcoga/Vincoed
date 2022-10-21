@@ -1,8 +1,8 @@
-import "./Header.css";
+import "./Banner.css";
 import logo from "../../assets/logo-restaurant.jpg";
 import { useNavigate } from "react-router-dom";
 
-export default function Header() {
+export default function Banner() {
   let navigate = useNavigate();
 
   const handleCreateRestaurant = () => {
@@ -10,7 +10,7 @@ export default function Header() {
   };
 
   return (
-    <header>
+    <div className="banner">
       <div className="content">
         <img src={logo} alt="logo.jpg" />
       </div>
@@ -22,6 +22,6 @@ export default function Header() {
           Crear restaurant
         </i>
       </div>
-    </header>
+    </div>
   );
 }
