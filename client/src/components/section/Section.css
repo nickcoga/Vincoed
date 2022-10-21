@@ -25,7 +25,7 @@
     .content__section{
      grid-column-start: 2;
      grid-column-end: 12;
-     grid-row-start: 5;
+     grid-row-start: 12;
      grid-row-end: 15;
      justify-content: center;
     }

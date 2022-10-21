@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import "./HomeRestaurants.css";
-import Header from "../../components/header/Header";
 import Filter from "../../components/filter/Filter";
 import Section from "../../components/section/Section";
 import RestaurantsServices from "../../services/restaurants_services";
+import Banner from "../../components/Banner/Banner";
+import Header from "../../shared/header/Header";
 
 export default function HomeRestaurant({ restaurants, setRestaurants }) {
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function HomeRestaurant({ restaurants, setRestaurants }) {
   return (
     <div className="container">
       <Header />
+      <Banner />
       <Filter placeholder={"Busca tu restaurante"} onChange={handleSearch} />
       <Section restaurants={restaurants} />
     </div>

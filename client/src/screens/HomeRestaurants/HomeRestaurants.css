@@ -9,7 +9,7 @@
 @media (min-width: 768px) {
    .container{
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(15, 5vw);
+    grid-template-rows: repeat(15, 62px);
    }
 
 }

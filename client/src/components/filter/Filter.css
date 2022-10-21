@@ -40,7 +40,7 @@
     .filter__content {
         grid-column-start: 4;
         grid-column-end: 11;
-        grid-row-start: 2;
+        grid-row-start: 4;
         grid-row-end: 7;
         gap: 10px;
         width: 80%;
