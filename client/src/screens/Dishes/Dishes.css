@@ -1,0 +1,80 @@
+.container__Dishes{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(15, 15vw); 
+    background-color: #f2f2f2;
+    align-items: center;
+}
+
+.content__Dishes {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.container__Details{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content__Details{
+    width: 90vw;
+    height: 30vh;
+    border-radius: 2px;
+    background-color: white;
+    border-color: 2px solid  var(--light-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+}
+
+.content__Cards {
+display: flex;
+gap: 20px;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .container__Dishes{
+     grid-template-columns: repeat(12, 1fr);
+     grid-template-rows: repeat(15, 62px);
+    }
+
+    .content__Dishes {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        grid-row-start: 6;
+        grid-row-end: 10;
+        flex-wrap: nowrap;
+    }
+    
+    .container__Details{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .content__Details{
+        width: 25vw;
+        height: 30vh;
+    }
+    .content__Cards {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+ 
