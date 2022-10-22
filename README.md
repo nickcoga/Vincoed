@@ -2,7 +2,7 @@
 
 Developer: Nick Correa Garcia
 
-![image](https://user-images.githubusercontent.com/68827067/197315266-6a0a36bc-837a-44bb-88f0-add763663eee.png)
+![image](https://user-images.githubusercontent.com/68827067/197315635-0a9261fc-4a14-4bc8-a81d-8862544dbf56.png)
 
 # Intruccions
 
