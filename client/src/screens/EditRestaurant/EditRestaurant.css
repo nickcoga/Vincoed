@@ -6,11 +6,17 @@
     justify-content: center; 
 }
 
-form{
+.content__form{
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
-    grid-row-end: 15;
+    grid-row-end: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form{
     width: 98vw;
     height: 100vh;
     border-radius: 8px;
@@ -33,12 +39,15 @@ form{
      grid-template-columns: repeat(12, 1fr);
      grid-template-rows: repeat(15, 5vw);
     }
+
+    .content__form{
+        grid-column-start: 6;
+        grid-column-end: 6;
+        grid-row-start: 5;
+        grid-row-end: 5;
+    }
  
     form{
-     grid-column-start: 6;
-     grid-column-end: 6;
-     grid-row-start: 5;
-     grid-row-end: 5;
      width: 25vw;
      height: 50vh;
  }

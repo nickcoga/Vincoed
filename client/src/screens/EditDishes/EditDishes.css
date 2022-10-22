@@ -25,11 +25,13 @@ form{
 }
 
 .content__button{
+    display: flex;
+    gap: 10px;
     width: 60vw;
 }
 
 @media (min-width: 768px) {
-    .editRestaurant__Container{
+    .editDishes__Container{
      grid-template-columns: repeat(12, 1fr);
      grid-template-rows: repeat(15, 5vw);
     }

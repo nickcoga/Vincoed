@@ -28,46 +28,53 @@ export default function EditDishes({ dishes }) {
     }
   };
 
+  const handleReturn = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="editDishes__Container">
-      <form id="form2" onSubmit={handleSubmit}>
-        <h3>Edita tu Plato</h3>
-        <InputText
-          required
-          type="text"
-          placeholder="Nombre"
-          value={currentDishes.name}
-          onChange={(e) =>
-            setCurrentDishes({ ...currentDishes, name: e.target.value })
-          }
-        />
-        <InputText
-          required
-          type="text"
-          placeholder="Price"
-          value={currentDishes.price}
-          onChange={(e) =>
-            setCurrentDishes({ ...currentDishes, price: e.target.value })
-          }
-        />
-        <InputText
-          required
-          type="text"
-          placeholder="Image"
-          value={currentDishes.image}
-          onChange={(e) =>
-            setCurrentDishes({
-              ...currentDishes,
-              image: e.target.value,
-            })
-          }
-        />
-        <div className="content__button">
-          <Button type="submit" form="form2">
-            Actualizar
-          </Button>
-        </div>
-      </form>
+      <div className="content__form">
+        <form id="form2" onSubmit={handleSubmit}>
+          <h3>Edita tu Plato</h3>
+          <InputText
+            required
+            type="text"
+            placeholder="Nombre"
+            value={currentDishes.name}
+            onChange={(e) =>
+              setCurrentDishes({ ...currentDishes, name: e.target.value })
+            }
+          />
+          <InputText
+            required
+            type="text"
+            placeholder="Price"
+            value={currentDishes.price}
+            onChange={(e) =>
+              setCurrentDishes({ ...currentDishes, price: e.target.value })
+            }
+          />
+          <InputText
+            required
+            type="text"
+            placeholder="Image"
+            value={currentDishes.image}
+            onChange={(e) =>
+              setCurrentDishes({
+                ...currentDishes,
+                image: e.target.value,
+              })
+            }
+          />
+          <div className="content__button">
+            <Button type="submit" form="form2">
+              Actualizar
+            </Button>
+          </div>
+        </form>
+        <Button onClick={handleReturn}>Regresar</Button>
+      </div>
     </div>
   );
 }

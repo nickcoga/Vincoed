@@ -29,58 +29,71 @@ export default function EditRestaurant({ restaurants }) {
     }
   };
 
+  const handleReturn = () => {
+    navigate(`/`);
+  };
+
   return (
     <div className="editRestaurant__Container">
-      <form id="form2" onSubmit={handleSubmit}>
-        <h3>Edita tu Restaurante</h3>
-        <InputText
-          required
-          type="text"
-          placeholder="Nombre"
-          value={currentRestaurant.name}
-          onChange={(e) =>
-            setCurrentRestaurant({ ...currentRestaurant, name: e.target.value })
-          }
-        />
-        <InputText
-          required
-          type="text"
-          placeholder="City"
-          value={currentRestaurant.city}
-          onChange={(e) =>
-            setCurrentRestaurant({ ...currentRestaurant, city: e.target.value })
-          }
-        />
-        <InputText
-          required
-          type="text"
-          placeholder="Address"
-          value={currentRestaurant.address}
-          onChange={(e) =>
-            setCurrentRestaurant({
-              ...currentRestaurant,
-              address: e.target.value,
-            })
-          }
-        />
-        <InputText
-          required
-          type="text"
-          placeholder="Image"
-          value={currentRestaurant.image}
-          onChange={(e) =>
-            setCurrentRestaurant({
-              ...currentRestaurant,
-              image: e.target.value,
-            })
-          }
-        />
-        <div className="content__button">
-          <Button type="submit" form="form2">
-            Actualizar
-          </Button>
-        </div>
-      </form>
+      <div className="content__form">
+        <form id="form2" onSubmit={handleSubmit}>
+          <h3>Edita tu Restaurante</h3>
+          <InputText
+            required
+            type="text"
+            placeholder="Nombre"
+            value={currentRestaurant.name}
+            onChange={(e) =>
+              setCurrentRestaurant({
+                ...currentRestaurant,
+                name: e.target.value,
+              })
+            }
+          />
+          <InputText
+            required
+            type="text"
+            placeholder="City"
+            value={currentRestaurant.city}
+            onChange={(e) =>
+              setCurrentRestaurant({
+                ...currentRestaurant,
+                city: e.target.value,
+              })
+            }
+          />
+          <InputText
+            required
+            type="text"
+            placeholder="Address"
+            value={currentRestaurant.address}
+            onChange={(e) =>
+              setCurrentRestaurant({
+                ...currentRestaurant,
+                address: e.target.value,
+              })
+            }
+          />
+          <InputText
+            required
+            type="text"
+            placeholder="Image"
+            value={currentRestaurant.image}
+            onChange={(e) =>
+              setCurrentRestaurant({
+                ...currentRestaurant,
+                image: e.target.value,
+              })
+            }
+          />
+          <div className="content__button">
+            <Button type="submit" form="form2">
+              Actualizar
+            </Button>
+          </div>
+        </form>
+        <Button onClick={handleReturn}>Regresar</Button>
+      </div>
     </div>
   );
 }
