@@ -5,6 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "make-seed": "npx sequelize-cli seed:generate --name demo-user",
+    "seed":"npx sequelize-cli db:seed:all",
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
