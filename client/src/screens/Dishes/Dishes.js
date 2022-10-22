@@ -1,30 +1,56 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CardDishes from "../../components/cardDishes/CardDishes";
 import DishesServices from "../../services/dishes_services";
 import Header from "../../shared/header/Header";
 import "./Dishes.css";
 
-export default function Dishes() {
-  const [dishes, setDishes] = useState([]);
-  console.log(dishes);
-
+export default function Dishes({ dishes, setDishes }) {
   const params = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
     const dishesService = new DishesServices();
     dishesService.show(params.id).then((data) => {
-      console.log(data);
       setDishes(data);
     });
-  }, [params]);
+  }, [params.id, setDishes]);
+
+  const hanldeCreateDish = () => {
+    navigate("dishes/new");
+  };
+
+  const handleEditDishes = (id) => {
+    navigate(`dishes/${id}/edit`);
+  };
+
+  const handleDeleteDishes = (id) => {
+    const dishesService = new DishesServices();
+    try {
+      dishesService.delete(id);
+      navigate(0);
+    } catch (error) {
+      console.log("Error a eliminar plato");
+    }
+  };
+
+  const handleReturn = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="container__Dishes">
-      {/* <div className="content__Header">
-        <Header />
-      </div> */}
       <Header />
+      <div className="content__list">
+        <ul>
+          <li className="dish__list" onClick={hanldeCreateDish}>
+            Crear plato
+          </li>
+          <li className="dish__list" onClick={handleReturn}>
+            Regresar
+          </li>
+        </ul>
+      </div>
       <div className="content__Dishes">
         <div className="container__Details">
           <div className="content__Details">
@@ -55,9 +81,12 @@ export default function Dishes() {
           ) : (
             dishes.map((dish, i) => (
               <CardDishes
+                key={dish.id}
                 name={dish.name}
                 price={dish.price}
                 image={dish.image}
+                onEditDishes={() => handleEditDishes(dish.id)}
+                onDeleteDishes={() => handleDeleteDishes(dish.id)}
               />
             ))
           )}
