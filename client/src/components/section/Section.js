@@ -17,11 +17,12 @@ export default function Section({ restaurants }) {
 
   const handleDeleteCard = (id) => {
     const restaunrantService = new RestaurantsServices();
-
     try {
       restaunrantService.delete(id);
       navigate(0);
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error a eliminar restaurante");
+    }
   };
 
   return (
